@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "432654371218",
+    "firebase_url": "https://socialmediaapp-90039-default-rtdb.firebaseio.com",
+    "project_id": "socialmediaapp-90039",
+    "storage_bucket": "socialmediaapp-90039.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432654371218:android:42ff4191619b432a45d94b",
+        "android_client_info": {
+          "package_name": "com.minhtien_fuelusagerecord"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432654371218-dmq7upjoqih0d9k9n89bpsthr34ct1nn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.minhtien_fuelusagerecord",
+            "certificate_hash": "ef5dbad8232f63929a74ee14e1f8f649d29a5e93"
+          }
+        },
+        {
+          "client_id": "432654371218-569ek9oqjp1dmosn7jbcmuganhhlvnkr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgujfwcZ9_MgDMVFU7MUCwC06aBtLbu20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432654371218-569ek9oqjp1dmosn7jbcmuganhhlvnkr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "432654371218-3i8hmd0ai4hruqtmfehc4o5ec1cj5s65.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.MinhTien-FuelUsageRecord"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
