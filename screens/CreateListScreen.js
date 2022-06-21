@@ -72,7 +72,7 @@ const CreateListScreen = props => {
           value={quantity}
           onChangeText={enteredValue => setQuantity(enteredValue)}
         />
-        <Button title="Create" onPress={handleCreate} />
+        <Button style={styles.button} title="Create" onPress={handleCreate} />
       </View>
     </SafeAreaView>
   );
@@ -80,8 +80,44 @@ const CreateListScreen = props => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#f9f9f9',
     height: '100%',
+  },
+  button: {
+    backgroundColor: '#ccc',
+  },
+  dropdown: {
+    height: 50,
+    borderColor: 'gray',
+    borderWidth: 0.5,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+  },
+  icon: {
+    marginRight: 5,
+  },
+  label: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    left: 22,
+    top: 8,
+    zIndex: 999,
+    paddingHorizontal: 8,
+    fontSize: 14,
+  },
+  placeholderStyle: {
+    fontSize: 16,
+  },
+  selectedTextStyle: {
+    fontSize: 16,
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 16,
   },
 });
 export default CreateListScreen;

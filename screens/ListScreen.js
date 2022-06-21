@@ -63,15 +63,17 @@ const ListScreen = props => {
   const renderItem = ({item}) => (
     <View style={styles.listItemContainer}>
       <View style={styles.listItemMetaContainer}>
-        <Text style={styles.itemTitle} numberOfLines={1}>
+        {/* <Text style={styles.itemTitle} numberOfLines={1}>
           {item.id}
-        </Text>
+        </Text> */}
         <Text style={styles.itemTitle} numberOfLines={1}>
           Fuel Type: {item.fuelType}
         </Text>
         <Text style={styles.itemTitle} numberOfLines={1}>
           Fuel Price: {item.fuelPrice}
         </Text>
+      </View>
+      <View style={styles.listItemMetaContainer}>
         <Text style={styles.itemTitle} numberOfLines={1}>
           Fuel Used: {item.fuelUsed}
         </Text>
@@ -92,7 +94,9 @@ const ListScreen = props => {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <TouchableOpacity onPress={onPressCreateFunction}>
+        <TouchableOpacity
+          onPress={onPressCreateFunction}
+          style={styles.createBtn}>
           <Text>Create List</Text>
         </TouchableOpacity>
         <Text>User Allowance Remaining:{remainingPrice}</Text>
@@ -112,8 +116,26 @@ const ListScreen = props => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#f9f9f9',
     height: '100%',
+  },
+  listItemContainer: {
+    flex: 1,
+    marginTop: 10,
+    flexDirection: 'row',
+    backgroundColor: '#dfdfdf',
+    alignItems: 'flex-start',
+  },
+  listItemMetaContainer: {
+    flex: 1,
+  },
+  itemTitle: {
+    fontSize: 14,
+  },
+  createBtn: {
+    alignItems: 'center',
+    backgroundColor: '#ccc',
+    padding: 10,
   },
 });
 export default ListScreen;
