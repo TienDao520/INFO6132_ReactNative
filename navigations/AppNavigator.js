@@ -9,7 +9,8 @@ import AppTitle from './AppTitle';
 
 import SignUpScreen from '../screens/SignUpScreen';
 import SignInScreen from '../screens/SignInScreen';
-import RoomScreen from '../screens/RoomScreen';
+import ListScreen from '../screens/ListScreen';
+import CreateListScreen from '../screens/CreateListScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +23,7 @@ function AppNavigator(props) {
         screenOptions={{
           headerTintColor: Platform.OS === 'android' ? 'white' : 'blue',
           headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? 'green' : '',
+            backgroundColor: Platform.OS === 'android' ? '#92a8d1' : '',
           },
         }}>
         <Stack.Screen
@@ -41,8 +42,16 @@ function AppNavigator(props) {
         />
 
         <Stack.Screen
-          name="RoomScreen"
-          component={RoomScreen}
+          name="ListScreen"
+          component={ListScreen}
+          options={{
+            headerTitle: () => <AppTitle />,
+          }}
+        />
+
+        <Stack.Screen
+          name="CreateListScreen"
+          component={CreateListScreen}
           options={{
             headerTitle: () => <AppTitle />,
           }}

@@ -13,12 +13,15 @@ import {
 
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {initData} from '../redux/rootReducer';
+import {useDispatch} from 'react-redux';
 
 const SignInScreen = props => {
   const {navigation} = props;
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     auth().onAuthStateChanged(user => {
@@ -52,9 +55,11 @@ const SignInScreen = props => {
     setIsLoading(true);
     auth()
       .signInWithEmailAndPassword(email, password)
-      .then(function (_firebaseUser) {
+      .then(async _firebaseUser => {
         setToken(_firebaseUser);
-        goToRoomScreen();
+        const data = await AsyncStorage.getItem('fuelList');
+        dispatch(initData(JSON.parse(data)));
+        goToListScreen();
       })
       .catch(function (error) {
         var errorCode = error.code;
@@ -72,8 +77,8 @@ const SignInScreen = props => {
     navigation.navigate('SignUpScreen');
   };
 
-  const goToRoomScreen = () => {
-    navigation.navigate('RoomScreen');
+  const goToListScreen = () => {
+    navigation.navigate('ListScreen');
   };
 
   return (
