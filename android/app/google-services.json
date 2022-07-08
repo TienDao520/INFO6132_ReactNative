@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "312861198444",
+    "project_id": "info6132-dfdd6",
+    "storage_bucket": "info6132-dfdd6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312861198444:android:eecef09f92f8f46bebb049",
+        "android_client_info": {
+          "package_name": "com.minhtiendao_lab2_nativemodules"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312861198444-lf4elmu7gcufvsom3ankcooc6kak216r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.minhtiendao_lab2_nativemodules",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "312861198444-giqjrehgb7op4c52t69um4ouelfeq1g6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV7DVgWZsPb8r_u50VITJuZpK2X5DWG90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312861198444-giqjrehgb7op4c52t69um4ouelfeq1g6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "312861198444-85qg1q108j197b7d47v79s3uul1ea0ab.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.MinhTienDao-Lab2-NativeModules"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
