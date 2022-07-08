@@ -21,20 +21,36 @@ import {useSelector, useDispatch} from 'react-redux';
 
 const DeviceInfo = props => {
   const [id, setId] = useState('Press the button to get The ID');
+  console.log({NativeModules}); // the interfaces shoudl be get from here
 
-  const {ReactDeviceInfo} = NativeModules;
+  const {ReactDeviceInfoMethod} = NativeModules;
 
-// await or then catch
-ReactDeviceInfo.getPhoneID()
-.then((res: string) => {
-  setId('ID: ' + res);
-  console.log(res);
-})
-.catch((err: any) => {
-  console.error(err);
-});
-  const 
-  return <Text>Device Info</Text>;
+  // // await or then catch
+  // ReactDeviceInfo.getPhoneID()
+  // .then((res: string) => {
+  //   setId('ID: ' + res);
+  //   console.log(res);
+  // })
+  // .catch((err: any) => {
+  //   console.error(err);
+  // });
+
+  // await or then catch
+  ReactDeviceInfoMethod.getPhoneID()
+    .then(res => {
+      setId('ID: ' + res);
+      console.log(res);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+
+  return (
+    <View>
+      <Text>Device Info</Text>
+      <Text>Device ID: {id}</Text>
+    </View>
+  );
 };
 
 export default DeviceInfo;

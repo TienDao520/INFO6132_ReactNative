@@ -18,6 +18,8 @@ import {useIsFocused} from '@react-navigation/native';
 import {removeItem} from '../redux/rootReducer';
 import {useSelector, useDispatch} from 'react-redux';
 
+import auth from '@react-native-firebase/auth';
+
 const ListScreen = props => {
   const {navigation} = props;
   const isFocused = useIsFocused();
@@ -95,6 +97,12 @@ const ListScreen = props => {
     navigation.navigate('DeviceInfo');
   };
 
+  const onPressLogOutFunction = () => {
+    auth()
+      .signOut()
+      .then(() => console.log('User signed out!'));
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -107,6 +115,11 @@ const ListScreen = props => {
           onPress={onPressDeviceInfoFunction}
           style={styles.createBtn}>
           <Text>Show Device Info</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={onPressLogOutFunction}
+          style={styles.createBtn}>
+          <Text>Log out</Text>
         </TouchableOpacity>
         <Text>User Allowance Remaining:{remainingPrice}</Text>
         {listItems.length !== 0 ? (
