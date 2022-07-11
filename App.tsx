@@ -3,6 +3,7 @@ import AppNavigator from './navigations/AppNavigator';
 import {Provider} from 'react-redux';
 import store from './redux/store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const initialData = {
   fuelStore: [
     {fuelType: 'Petrol', price: '30'},
@@ -21,6 +22,7 @@ export default function App() {
   //   }
   // };
   // storeData(initialData);
+
   AsyncStorage.setItem('fuelList', JSON.stringify(initialData)).then(() =>
     console.log('data init successful'),
   );

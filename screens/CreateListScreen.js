@@ -9,6 +9,7 @@ import {
   StyleSheet,
   SafeAreaView,
   ScrollView,
+  NativeModules,
 } from 'react-native';
 
 import {Dropdown} from 'react-native-element-dropdown';
@@ -30,6 +31,7 @@ const CreateListScreen = props => {
     const selectedPrice = data.find(
       item => item.fuelType === selectedType,
     ).price;
+
     const inputData = {
       id: Date.now().toString(),
       fuelType: selectedType,

@@ -9,6 +9,7 @@ import {
   StyleSheet,
   SafeAreaView,
   ScrollView,
+  NativeModules,
 } from 'react-native';
 
 import auth from '@react-native-firebase/auth';
@@ -22,6 +23,8 @@ const SignInScreen = props => {
   const [password, setPassword] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+
+  const {ReactFuelMethod} = NativeModules;
 
   // useEffect(() => {
   //   auth().onAuthStateChanged(user => {
@@ -59,9 +62,23 @@ const SignInScreen = props => {
       .signInWithEmailAndPassword(email, password)
       .then(async _firebaseUser => {
         setToken(_firebaseUser);
-        const data = await AsyncStorage.getItem('fuelList');
-        dispatch(initData(JSON.parse(data)));
-        goToListScreen();
+        // const data = await AsyncStorage.getItem('fuelList');
+        ReactFuelMethod.getFuelData().then(res => {
+          const data = {
+            fuelStore: [
+              {fuelType: res[1], price: res[2]},
+              {fuelType: res[3], price: res[4]},
+              {fuelType: res[5], price: res[6]},
+            ],
+            usedList: [],
+            userMaxAllowance: res[0],
+          };
+          console.log('Data from native', data);
+          // dispatch(initData(JSON.parse(data)));
+          dispatch(initData(data));
+          goToListScreen();
+        });
+        // dispatch(initData(JSON.parse(data)));
       })
       .catch(function (error) {
         var errorCode = error.code;
