@@ -53,23 +53,6 @@ public class ReactFuelMethod extends ReactContextBaseJavaModule {
     @ReactMethod
     public void getFuelData(Promise response) {
         try {
-//            switch(fuelType) {
-//                case "Petrol": {
-//                    String fuelPrice = "30";
-//                    break;
-//                }
-//                case "Diesel": {
-//                    String fuelPrice = "40";
-//                    break;
-//                }
-//                case "BatteryCharge": {
-//                    String fuelPrice = "10";
-//                    break;
-//                }
-//                default: {
-//                    break;
-//                }
-//            }
 
             String userMaxAllowance = "600";
             String fuelType1 = "Petrol";
@@ -94,5 +77,21 @@ public class ReactFuelMethod extends ReactContextBaseJavaModule {
         } catch (Exception e) {
             response.reject("Error", e);
         }
+    }
+
+    @ReactMethod
+    public void getBlanceCheck( int userAvailableBalance, int userMaxAllowance,Promise response) {
+        try {
+            if ((userAvailableBalance-userMaxAllowance) >=0){
+                response.resolve(true);
+            }
+            else {
+                response.resolve(false);
+            }
+        } catch (Exception e) {
+            response.reject("Error", e);
+        }
+
+
     }
 }

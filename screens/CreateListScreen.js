@@ -6,11 +6,15 @@ import {
   Button,
   StyleSheet,
   SafeAreaView,
+  Alert,
+  NativeModules,
 } from 'react-native';
 
 import {Dropdown} from 'react-native-element-dropdown';
 import {addItem} from '../redux/rootReducer';
 import {useSelector, useDispatch} from 'react-redux';
+
+import useAppContext from '../store/app-context';
 
 const CreateListScreen = props => {
   const [selectedType, setSelectedType] = useState('');
@@ -20,22 +24,37 @@ const CreateListScreen = props => {
 
   const {navigation} = props;
 
+  const {ReactFuelMethod} = NativeModules;
+
+  const appCtx = useAppContext();
+
   const dispatch = useDispatch();
 
   const data = useSelector(state => state.fuelStore);
   const handleCreate = () => {
+    console.log(appCtx.remainingPrice);
     const selectedPrice = data.find(
       item => item.fuelType === selectedType,
     ).price;
 
-    const inputData = {
-      id: Date.now().toString(),
-      fuelType: selectedType,
-      fuelPrice: selectedPrice,
-      fuelUsed: quantity * selectedPrice,
-    };
-    dispatch(addItem(inputData));
-    navigation.navigate('ListScreen');
+    ReactFuelMethod.getBlanceCheck(
+      parseInt(appCtx.remainingPrice),
+      parseInt(quantity * selectedPrice),
+    ).then(res => {
+      // if (appCtx.remainingPrice - quantity * selectedPrice >= 0) {
+      if (res) {
+        const inputData = {
+          id: Date.now().toString(),
+          fuelType: selectedType,
+          fuelPrice: selectedPrice,
+          fuelUsed: quantity * selectedPrice,
+        };
+        dispatch(addItem(inputData));
+        navigation.navigate('ListScreen');
+      } else {
+        Alert.alert('There is not enough balance to purchase');
+      }
+    });
   };
 
   return (
@@ -66,6 +85,7 @@ const CreateListScreen = props => {
         />
         <TextInput
           style={styles.input}
+          keyboardType="numeric"
           placeholder="Enter litres/ change unit here"
           value={quantity}
           onChangeText={enteredValue => setQuantity(enteredValue)}

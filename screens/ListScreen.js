@@ -13,10 +13,13 @@ import {useSelector, useDispatch} from 'react-redux';
 
 import auth from '@react-native-firebase/auth';
 
+import useAppContext from '../store/app-context';
+
 const ListScreen = props => {
   const {navigation} = props;
   const isFocused = useIsFocused();
   const dispatch = useDispatch();
+  const appCtx = useAppContext();
 
   const onPressCreateFunction = () => {
     navigation.navigate('CreateListScreen');
@@ -44,8 +47,8 @@ const ListScreen = props => {
   var sum = listItems.reduce((accumulator, object) => {
     return accumulator + object.fuelUsed;
   }, 0);
-  var remainingPrice = (allowanceRemaining - sum).toString();
-
+  appCtx.remainingPrice = (allowanceRemaining - sum).toString();
+  var remainingPrice = appCtx.remainingPrice;
   const removeTheItem = ({item}) => {
     dispatch(removeItem({item}));
   };
