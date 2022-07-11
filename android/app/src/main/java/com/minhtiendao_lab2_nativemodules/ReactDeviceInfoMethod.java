@@ -42,30 +42,6 @@ public class ReactDeviceInfoMethod extends ReactContextBaseJavaModule {
         reactContext = context;
     }
 
-    public static boolean isTablet(Context context) {
-        return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
-    }
-
-    public static boolean getDeviceMoreThan5Inch(Context activity) {
-        try {
-            DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
-            // int width = displayMetrics.widthPixels;
-            // int height = displayMetrics.heightPixels;
-
-            float yInches = displayMetrics.heightPixels / displayMetrics.ydpi;
-            float xInches = displayMetrics.widthPixels / displayMetrics.xdpi;
-            double diagonalInches = Math.sqrt(xInches * xInches + yInches * yInches);
-            if (diagonalInches >= 7) {
-                // 5inch device or bigger
-                return true;
-            } else {
-                // smaller device
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
-        }
-    }
 
     @NonNull
     @Override
@@ -89,36 +65,13 @@ public class ReactDeviceInfoMethod extends ReactContextBaseJavaModule {
             String versionCode = new String(String.valueOf(BuildConfig.VERSION_CODE));
             String versionName = BuildConfig.VERSION_NAME;
 
-
-//            if (isTablet(this)) {
-//                if (getDeviceMoreThan5Inch(this)) {
-//                    return "Tablet";
-//                } else
-//                    return "Mobile";
-//            } else {
-//                return "Mobile";
-//            }
-
-            TelephonyManager manager = (TelephonyManager)reactContext.getSystemService(Context.TELEPHONY_SERVICE);
+                        TelephonyManager manager = (TelephonyManager)reactContext.getSystemService(Context.TELEPHONY_SERVICE);
             if (Objects.requireNonNull(manager).getPhoneType() == TelephonyManager.PHONE_TYPE_NONE) {
-//                Toast.makeText(MainActivity.this, "Detected... You're using a Tablet", Toast.LENGTH_SHORT).show();
                 deviceType = "Tablet";
             } else {
-//                Toast.makeText(MainActivity.this, "Detected... You're using a Mobile Phone", Toast.LENGTH_SHORT).show();
                 deviceType = "Mobile";
             }
 
-//            DisplayMetrics metrics = new DisplayMetrics();
-//            getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
-//
-//            float yInches= metrics.heightPixels/metrics.ydpi;
-//            float xInches= metrics.widthPixels/metrics.xdpi;
-//            double diagonalInches = Math.sqrt(xInches*xInches + yInches*yInches);
-//            if (diagonalInches>=6.5){
-//                // 6.5inch device or bigger
-//            }else{
-//                // smaller device
-//            }
 
             String android_id = Settings.Secure.getString(reactContext.getContentResolver(),
                     Settings.Secure.ANDROID_ID);
