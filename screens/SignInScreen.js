@@ -74,11 +74,9 @@ const SignInScreen = props => {
             userMaxAllowance: res[0],
           };
           console.log('Data from native', data);
-          // dispatch(initData(JSON.parse(data)));
           dispatch(initData(data));
           goToListScreen();
         });
-        // dispatch(initData(JSON.parse(data)));
       })
       .catch(function (error) {
         var errorCode = error.code;

@@ -10,7 +10,6 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
-// import {auth} from '../FirebaseConfig';
 import auth from '@react-native-firebase/auth';
 
 const SignUpScreen = props => {

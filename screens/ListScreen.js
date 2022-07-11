@@ -2,18 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {
   Text,
   View,
-  TextInput,
-  Button,
-  Alert,
-  Image,
   StyleSheet,
   SafeAreaView,
-  ScrollView,
   FlatList,
   TouchableOpacity,
-  Pressable,
 } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useIsFocused} from '@react-navigation/native';
 import {removeItem} from '../redux/rootReducer';
 import {useSelector, useDispatch} from 'react-redux';

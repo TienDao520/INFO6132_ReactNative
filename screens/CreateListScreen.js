@@ -4,12 +4,8 @@ import {
   View,
   TextInput,
   Button,
-  Alert,
-  Image,
   StyleSheet,
   SafeAreaView,
-  ScrollView,
-  NativeModules,
 } from 'react-native';
 
 import {Dropdown} from 'react-native-element-dropdown';

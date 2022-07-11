@@ -2,18 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {
   Text,
   View,
-  TextInput,
-  Button,
-  Alert,
-  Image,
   StyleSheet,
   SafeAreaView,
-  ScrollView,
   FlatList,
   TouchableOpacity,
-  Pressable,
 } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useIsFocused} from '@react-navigation/native';
 import {removeItem} from '../redux/rootReducer';
 import {useSelector, useDispatch} from 'react-redux';
@@ -40,32 +33,10 @@ const ListScreen = props => {
     navigation.navigate('SignInScreen');
   };
 
-  // const [listItems, setListItems] = [];
-  // useEffect(() => {
-  //   setListItems(
-  //     useSelector(state => {
-  //       return state.usedList;
-  //     }),
-  //   );
-  //   console.dir(listItems);
-  // }, [isFocused]);
-
-  // setListItems(
-  //   useSelector(state => {
-  //     return state.usedList;
-  //   }),
-  // );
   var listItems = useSelector(state => {
     return state.usedList;
   });
-  // const totalPrice = listItems.reduce((total, amount, index, array) => {
-  //   total += amount;
-  //   return total;
-  // }, 0);
 
-  // for (const item in listItems) {
-  //   sum += listItems[key];
-  // }
   var allowanceRemaining = useSelector(state => {
     return state.userMaxAllowance;
   });
@@ -82,9 +53,6 @@ const ListScreen = props => {
   const renderItem = ({item}) => (
     <View style={styles.listItemContainer}>
       <View style={styles.listItemMetaContainer}>
-        {/* <Text style={styles.itemTitle} numberOfLines={1}>
-          {item.id}
-        </Text> */}
         <Text style={styles.itemTitle} numberOfLines={1}>
           Fuel Type: {item.fuelType}
         </Text>
