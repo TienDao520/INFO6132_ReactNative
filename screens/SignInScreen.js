@@ -23,24 +23,24 @@ const SignInScreen = props => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    auth().onAuthStateChanged(user => {
-      console.log('user: ', user);
-      if (user != null) {
-        console.log('The return user information: ', user);
-        //ToDo: navigate to ListScreen
-        navigation.navigate('ListScreen');
-      }
-    });
-    async function fetchToken() {
-      const token = await AsyncStorage.getItem('token');
-      if (token !== '') {
-        //ToDo: navigate to ListScreen
-        navigation.navigate('ListScreen');
-      }
-    }
-    fetchToken();
-  }, [navigation]);
+  // useEffect(() => {
+  //   auth().onAuthStateChanged(user => {
+  //     console.log('user: ', user);
+  //     if (user != null) {
+  //       console.log('The return user information: ', user);
+  //       //ToDo: navigate to ListScreen
+  //       // navigation.navigate('ListScreen');
+  //     }
+  //   });
+  //   async function fetchToken() {
+  //     const token = await AsyncStorage.getItem('token');
+  //     if (token !== '') {
+  //       //ToDo: navigate to ListScreen
+  //       // navigation.navigate('ListScreen');
+  //     }
+  //   }
+  //   fetchToken();
+  // }, [navigation]);
 
   const setToken = firebaseUser => {
     firebaseUser.user
@@ -83,6 +83,13 @@ const SignInScreen = props => {
     navigation.navigate('ListScreen');
   };
 
+  const onPressLogOutFunction = () => {
+    auth()
+      .signOut()
+      .then(() => console.log('User signed out!'));
+    navigation.navigate('SignInScreen');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -119,6 +126,9 @@ const SignInScreen = props => {
           </View>
           <View style={styles.button}>
             <Button title="Sign Up" onPress={goToSignUpScreen} />
+          </View>
+          <View style={styles.button}>
+            <Button title="Log Out" onPress={onPressLogOutFunction} />
           </View>
         </View>
       </ScrollView>

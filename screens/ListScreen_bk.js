@@ -40,10 +40,32 @@ const ListScreen = props => {
     navigation.navigate('SignInScreen');
   };
 
+  // const [listItems, setListItems] = [];
+  // useEffect(() => {
+  //   setListItems(
+  //     useSelector(state => {
+  //       return state.usedList;
+  //     }),
+  //   );
+  //   console.dir(listItems);
+  // }, [isFocused]);
+
+  // setListItems(
+  //   useSelector(state => {
+  //     return state.usedList;
+  //   }),
+  // );
   var listItems = useSelector(state => {
     return state.usedList;
   });
+  // const totalPrice = listItems.reduce((total, amount, index, array) => {
+  //   total += amount;
+  //   return total;
+  // }, 0);
 
+  // for (const item in listItems) {
+  //   sum += listItems[key];
+  // }
   var allowanceRemaining = useSelector(state => {
     return state.userMaxAllowance;
   });
