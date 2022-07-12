@@ -15,6 +15,8 @@
 		37162DFF28789444002BF84E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37162DFE28789443002BF84E /* GoogleService-Info.plist */; };
 		37FFA4B5287CD97A001E3BA4 /* ReactDeviceInfoMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFA4B4287CD97A001E3BA4 /* ReactDeviceInfoMethod.swift */; };
 		37FFA4B7287D041D001E3BA4 /* ReactFuelMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FFA4B6287D041D001E3BA4 /* ReactFuelMethod.swift */; };
+		37FFA4B9287D2CEC001E3BA4 /* ReactFuelMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FFA4B8287D2CEC001E3BA4 /* ReactFuelMethod.m */; };
+		37FFA4BB287D2D97001E3BA4 /* ReactDeviceInfoMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FFA4BA287D2D97001E3BA4 /* ReactDeviceInfoMethod.m */; };
 		7699B88040F8A987B510C191 /* libPods-MinhTienDao_Lab2_NativeModules-MinhTienDao_Lab2_NativeModulesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-MinhTienDao_Lab2_NativeModules-MinhTienDao_Lab2_NativeModulesTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		37FFA4B3287CD97A001E3BA4 /* MinhTienDao_Lab2_NativeModules-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MinhTienDao_Lab2_NativeModules-Bridging-Header.h"; sourceTree = "<group>"; };
 		37FFA4B4287CD97A001E3BA4 /* ReactDeviceInfoMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactDeviceInfoMethod.swift; sourceTree = "<group>"; };
 		37FFA4B6287D041D001E3BA4 /* ReactFuelMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactFuelMethod.swift; sourceTree = "<group>"; };
+		37FFA4B8287D2CEC001E3BA4 /* ReactFuelMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactFuelMethod.m; sourceTree = "<group>"; };
+		37FFA4BA287D2D97001E3BA4 /* ReactDeviceInfoMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactDeviceInfoMethod.m; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-MinhTienDao_Lab2_NativeModules.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhTienDao_Lab2_NativeModules.debug.xcconfig"; path = "Target Support Files/Pods-MinhTienDao_Lab2_NativeModules/Pods-MinhTienDao_Lab2_NativeModules.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-MinhTienDao_Lab2_NativeModules.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhTienDao_Lab2_NativeModules.release.xcconfig"; path = "Target Support Files/Pods-MinhTienDao_Lab2_NativeModules/Pods-MinhTienDao_Lab2_NativeModules.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-MinhTienDao_Lab2_NativeModules-MinhTienDao_Lab2_NativeModulesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhTienDao_Lab2_NativeModules-MinhTienDao_Lab2_NativeModulesTests.debug.xcconfig"; path = "Target Support Files/Pods-MinhTienDao_Lab2_NativeModules-MinhTienDao_Lab2_NativeModulesTests/Pods-MinhTienDao_Lab2_NativeModules-MinhTienDao_Lab2_NativeModulesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 				37FFA4B4287CD97A001E3BA4 /* ReactDeviceInfoMethod.swift */,
 				37FFA4B3287CD97A001E3BA4 /* MinhTienDao_Lab2_NativeModules-Bridging-Header.h */,
 				37FFA4B6287D041D001E3BA4 /* ReactFuelMethod.swift */,
+				37FFA4B8287D2CEC001E3BA4 /* ReactFuelMethod.m */,
+				37FFA4BA287D2D97001E3BA4 /* ReactDeviceInfoMethod.m */,
 			);
 			name = MinhTienDao_Lab2_NativeModules;
 			sourceTree = "<group>";
@@ -443,8 +449,10 @@
 			files = (
 				37FFA4B7287D041D001E3BA4 /* ReactFuelMethod.swift in Sources */,
 				37FFA4B5287CD97A001E3BA4 /* ReactDeviceInfoMethod.swift in Sources */,
+				37FFA4BB287D2D97001E3BA4 /* ReactDeviceInfoMethod.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				37FFA4B9287D2CEC001E3BA4 /* ReactFuelMethod.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

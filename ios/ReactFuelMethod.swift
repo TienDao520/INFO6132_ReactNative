@@ -8,8 +8,15 @@
 import Foundation
 
 @objc(ReactFuelMethod)
-class ReactFuelMethod: NSObject {
+class ReactFuelMethod: RCTEventEmitter {
   private var arrayResult: [String] = []
+  @objc
+  override static func requiresMainQueueSetup() ->Bool{
+    return true;
+  }
+  override func supportedEvents() -> [String]! {
+     return [];
+  }
   
   @objc
   func getFuelData(_ resolve:RCTPromiseResolveBlock,

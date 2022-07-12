@@ -8,10 +8,16 @@
 import Foundation
 
 @objc(ReactDeviceInfoMethod)
-class ReactDeviceInfoMethod: NSObject {
+class ReactDeviceInfoMethod: RCTEventEmitter {
   
   private var arrayResult: [String] = []
-  
+  @objc
+  override static func requiresMainQueueSetup() ->Bool{
+    return true;
+  }
+  override func supportedEvents() -> [String]! {
+     return [];
+  }
   @objc
     func getPhoneID(_ resolve:RCTPromiseResolveBlock,
                          reject:RCTPromiseRejectBlock){
